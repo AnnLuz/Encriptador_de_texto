@@ -1,0 +1,486 @@
+/*Variables de colores*/
+:root{
+    --color-primario:black;
+    --color-secundario:#a5c8f3;
+    --color-terciario: #1bd7dd;
+    --color-fondo:#0A3871;
+    --color-search:rgb(255, 255, 255);
+
+}
+/*Estilo general*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Maquetado básico cuerpo de la página*/
+.body{
+    background-color: var(--color-primario); 
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+
+}
+
+.header{
+    margin: 1%;
+}
+
+.main_container {
+    min-height: 72vh;
+    margin: 3% 4% 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section_container{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer{
+    width: 100%;
+    min-height: 20vh;
+    background-color: var(--color-fondo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+}
+/*Sección de ingresar texto para encriptar y desencriptar*/
+.image{
+    width: 100%;
+    height: 40%;
+}
+.box_search{
+    position: relative;
+    width: 40%;
+    height: 80px;
+    line-height: 80px
+}
+.description{
+
+    color: var(--color-secundario);
+}
+
+input{
+    position: absolute;
+    width: 100%;
+    outline: none;
+    font-size: 2.2em;
+    padding: 0 30px;
+    line-height: 80px;
+    border-radius: 10px;
+    border: 2px solid #002BFF;
+    background: transparent;
+    color: var(--color-secundario);
+    transition: 0.1s ease;
+    z-index: 1111;
+}
+
+.label_line{
+
+    
+    position: absolute;
+    padding: 100%;
+    font-size: 1.6em;
+    color: var(--color-secundario);
+    padding: 0 25px;
+    margin: 0 20px;
+    background-color: var(--color-primario);
+    transition: 0.2s ease;
+}
+
+input:focus,
+input:valid{
+    color: aqua;
+    border: 4px solid aqua;
+}
+
+input:focus + .label_line,
+input:valid + .label_line{
+    color: aqua;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+    transform: translate(-15px, -16px) scale(0.88);
+    z-index: 1111;
+}
+/*Estilo Botones*/
+.box_boton{
+    margin-top: 30%;
+    padding: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(1.5);
+}
+
+button{
+    padding: 15px 40px;
+    margin: 5%;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+}
+button::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-fondo);
+    left:0;
+    top:0;
+    border-radius: 10px;
+}
+button::before{
+
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #00FFD5, #002BFF,#FF00C8,#FF0000,
+        #FF0000, #FF7300,#FFFB00,#48FF00
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity:1;
+}
+
+@keyframes glowing{
+
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+/*Sección Visualización de resultados*/
+.description{
+    margin-top: 75px;
+}
+
+.img_icon{
+    width: 17px;
+    position: relative;
+    margin-top: 10px;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.encrypted_and_decrypted_text{
+    width: 450px;
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+h2{
+    font-family:'Courier New', Courier, monospace;
+}
+.mensaje{
+    background-image: url(/assets/img/imagen_desktop.jpg);
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    
+    
+}
+.mensaje:focus{
+    outline: none;
+}
+.copiar{
+    margin-left: 50%;
+}
+.titulo_reseña{
+    color: bisque;
+    padding: 0.5%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    margin-bottom: 500px;
+}
+.boton_mensaje{
+    margin-right: 100px;
+}
+/*Responsive  Desing Desktop*/
+
+@media(max-width: 1110px){
+
+    .main_container {
+        min-height: 71vh;
+        margin-left: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box_boton {
+        margin-top: 30%;
+        padding: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transform: scale(1);
+    }
+
+}
+
+
+@media(max-width: 950px){
+
+    .box_boton{
+        margin-top: 30%;
+        padding: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        transform: scale(1);
+    }
+    .label_line {
+        position: absolute;
+        padding: 100%;
+        font-size: 1em;
+        color: var(--color-secundario);
+        padding: 0 25px;
+        margin: 0 20px;
+        background-color: var(--color-primario);
+        transition: 0.2s ease;
+    }
+    .description {
+        margin-top: 75px;
+        font-size: 0.7em;
+    }
+    .footer{
+        width: 100%;
+        min-height: 20vh;
+        background-color: var(--color-fondo);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 0.7em;
+    }
+    .label_line {
+        position: absolute;
+        padding: 100%;
+        font-size: 0.8em;
+        color: var(--color-secundario);
+        padding: 0 25px;
+        margin: 0 20px;
+        background-color: var(--color-primario);
+        transition: 0.2s ease;
+    }
+}
+/*Responsive desing Tablet*/
+@media(max-width: 768px){
+    .header {
+        margin: 1%;
+        min-height: 10vh;
+    }
+
+    .label_line {
+        position: absolute;
+        padding: 100%;
+        font-size: 0.8em;
+        color: var(--color-secundario);
+        padding: 0 25px;
+        margin: 0 20px;
+        background-color: var(--color-primario);
+        transition: 0.2s ease;
+    }
+    .main_container {
+        min-height: 78vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .encrypted_and_decrypted_text {
+        width: 300px;
+        padding: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 450px;
+        text-align: center;
+    }
+    .section_container {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .box_boton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        transform: scale(1);
+        margin: 20px;
+    }
+
+    button {
+        padding: 15px 40px;
+        margin: 15%;
+        border: none;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 12px;
+    }
+    .titulo_reseña {
+        color: bisque;
+        padding: 0.5%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        position: absolute;
+        margin-bottom: 600px;
+    }
+    .footer{
+        width: 100%;
+        min-height: 10vh;
+        background-color: var(--color-fondo);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .mensaje{
+        background-image: url(/assets/img/imagen_tablet.jpg);
+        background-repeat: no-repeat;
+        border: none;
+        border-radius: 24px;
+        margin-bottom: 3%; 
+
+    }
+}
+
+@media(max-width: 562px){
+
+
+    .main_container {
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 1%;
+    }
+    .label_line {
+        position: absolute;
+        padding: 100%;
+        font-size: 0.6em;
+        color: var(--color-secundario);
+        padding: 0 25px;
+        margin: 0 20px;
+        background-color: var(--color-primario);
+        transition: 0.2s ease;
+    }
+    .description {
+        margin-top: 75px;
+        font-size: 0.5em;
+    }
+    button {
+        padding: 15% 40%;
+        margin: 15%;
+        border: none;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 12px;
+        
+    }
+    .titulo_reseña {
+        color: bisque;
+        padding: 0.5%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        position: absolute;
+        margin-bottom: 600px;
+        align-items: center;
+        padding: 20%;
+    }
+}
+
+@media(max-width: 429px){
+    .content_img{
+        width: 25%;
+    }
+    .box_search {
+        position: relative;
+        width: 50%;
+        height: 50px;
+        line-height: 80px;
+    }
+    .description {
+        margin-top: 75px;
+        font-size: 0.4em;
+    }
+    button {
+        padding: 15% 40%;
+        margin: 15%;
+        border: none;
+        outline: none;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 12px;
+    }
+    .boton_mensaje {
+        margin-right: 80px;
+    }
+
+}
+
+/*Responsive Desing Celular*/
+@media(max-width: 375px){
+
+    .mensaje{
+        background-image: url(/assets/img/imagen_celular.jpg);
+        background-repeat: no-repeat;
+        border: none;
+        border-radius: 24px;
+        margin-bottom: 10%; 
+        width: 105%
+    }
+
+}

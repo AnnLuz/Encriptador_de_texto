@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+    <title>Encriptador de texto</title>
+</head>
+<body class="body">
+    <header class="header">
+        <img class="content_img" src="./assets/log/Logo.png" alt="">
+    </header>
+    <main class="main_container">
+        <section class="section_container">
+            <div class="box_search">
+                <input type="text" class="input_text" id="textoInput" required>
+                <div class="label_line">Ingrese el texto aquí</div>
+                <p class="description"><img class="img_icon" src="./assets/icon/comentario-exclamacion..svg" alt="">Solo letras minúsculas y sin acento</p>
+                <div class="box_boton">
+                    <button class="button" onclick="btnEncriptar()" id="botonEncriptar" >Encriptar</button>
+                    <button class="button" onclick="btnDesencriptar()" id="botonDesencriptar">Desencriptar</button>
+                </div>
+            </div>
+            <div class="encrypted_and_decrypted_text">
+                <div class="titulo_reseña">
+                    <h2 class="titulo">Ningún mensaje fue encontrado</h2>
+                    <p class="reseña">Ingrese texto que desee encriptar o desencriptar</p>
+                </div>
+                <textarea class="mensaje" cols="49" rows="22" id="imagen"></textarea>
+                <div class="boton_mensaje">
+                    <button class="copiar" id="botonCopiar">Copiar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>Challenge Alura Latam</p>
+        <p>&copy;copyright 2024 | Encriptador de texto</p>
+        <p>Desarrollado por Ana María Luz Alvarez</p>
+        <div>
+            <img src="./assets/icon/corazon.png" alt="">
+            <a href="https://www.facebook.com/profile.php?id=100084179298134&mibextid=ZbWKwL"><img src="./assets/icon/facebook..png" alt=""></a>
+            <img src="./assets/icon/corazon.png" alt="">
+            <a href="https://github.com/AnaAlvarez1"><img src="./assets/icon/github..png" alt=""></a>
+            <img src="./assets/icon/corazon.png" alt="">
+            <a href="https://www.instagram.com/alvarez_a.m.l?igsh=eG9wZTVicnZ2eGpx"><img src="./assets/icon/instagram..png" alt=""></a>
+            <img src="./assets/icon/corazon.png" alt="">
+        </div>
+    </footer>
+    <script src="./script/app.js"></script>
+</body>
+</html>
