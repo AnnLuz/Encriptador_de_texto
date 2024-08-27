@@ -27,6 +27,11 @@ Autores del Proyecto:
 
 Este proyecto ha sido desarrollado por Ana María Luz Alvarez a travez del challenge del programa ONE Oracle de Alura Latam. Puedes encontrar más sobre su trabajo y otros proyectos en sus perfiles de GitHub, Facebook e Instagram.
 
+Para ver el despliegue en 
+VERSEL: https://encriptador-de-texto-sand.vercel.app/ 
+GITHUB: https://annluz.github.io/Encriptador_de_texto/ 
+Aclaración! Despliegue en GitHub, no se pueden ver las imagenes. (buscando solución)
+
 
 ![Encriptador de texto - Google Chrome 27_8_2024 01_45_08](https://github.com/user-attachments/assets/f9df5db4-d5b1-44e8-9856-d3cd53843b75)
 
