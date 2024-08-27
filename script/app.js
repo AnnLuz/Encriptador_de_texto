@@ -18,6 +18,19 @@ const reseña = document.querySelector(".reseña");
 // Captura el botón de copiar
 const botonCopiar = document.querySelector(".copiar");
 
+// Mostrar el botón de copiar
+function mostrarBotonCopiar() {
+    const botonCopiar = document.querySelector(".copiar");
+    botonCopiar.style.display = "block"; // Cambia a "block" para mostrar el botón
+}
+
+// Ocultar el botón de copiar
+function ocultarBotonCopiar() {
+    const botonCopiar = document.querySelector(".copiar");
+    botonCopiar.style.display = "none"; // Cambia a "none" para ocultar el botón
+}
+
+
 //funcion para evento
 
 function btnEncriptar(){
@@ -34,7 +47,7 @@ function btnEncriptar(){
 
 
      
-     if(textoEncriptado.length != 0){
+     if(textoEncriptado.length > 0){
 
         //la imagen desaparece
         msj.style.backgroundImage = "none";
@@ -42,19 +55,24 @@ function btnEncriptar(){
         titulo.textContent = "Texto encriptado con éxito";
         //Parrafo de mensaje encriptado
         reseña.textContent = " ";
+        //Se muestra el boton de copiar texto
+        mostrarBotonCopiar();
+
 
         // Asegurarse de que solo se registre un evento de clic
         botonCopiar.removeEventListener("click", handleCopyClick); // Eliminar el evento anterior si existe
         botonCopiar.addEventListener("click", handleCopyClick); 
 
      } else {
+        //La imagen aparece
         msj.style.backgroundImage = "";
         //Título de mensaje 
-        titulo.textContent = "Ningun mensaje fue encontrado";
+        titulo.textContent = "Ningún mensaje fue encontrado";
         //Parrafo de mensaje encriptado
         reseña.textContent = "Ingrese texto que desee encriptar o desencriptar";
         //alerta
         alert("Debes ingresar algún texto");
+        ocultarBotonCopiar();
         
      }
 }
@@ -76,11 +94,14 @@ function encriptar(stringEncript){
     let matriz = [["e" , "enter"],["i", "imes"],["a", "ai"],["o", "ober"],["u", "ufat"]];
 
     if (/[A-Z]/.test(stringEncript) && /[^a-zA-Z0-9\s]/.test(stringEncript)) {
-        alert("Has ingresado letras mayúsculas y caracteres especiales, por favor ingresa nuevamente.");
+        alert("Has ingresado letra/s mayúscula/s y caracteres especiales, por favor ingresa nuevamente.");
+        return null; // Retornar null si el texto no cumple con las condiciones
     } else if (/[A-Z]/.test(stringEncript)) {
-        alert("Has ingresado letras mayúsculas, por favor ingresa nuevamente.");
+        alert("Has ingresado letra/s mayúscula/s, por favor ingresa nuevamente.");
+        return null; // Retornar null si el texto no cumple con las condiciones
     } else if (/[^a-zA-Z0-9\s]/.test(stringEncript)) {
         alert("Has ingresado caracteres especiales, por favor ingresa nuevamente.");
+        return null; // Retornar null si el texto no cumple con las condiciones
     } else {
         for(let i = 0; i< matriz.length; i++){
             
@@ -92,7 +113,7 @@ function encriptar(stringEncript){
             }
             
         }
-        return stringEncript;
+        return stringEncript; //Retorna el texto encriptado
     }
     
    
@@ -110,6 +131,7 @@ function encriptar(stringEncript){
 
 function btnDesencriptar(){
 
+    
     if (!inputTexto || !msj || !titulo || !reseña) {
         console.error("Elementos del DOM no encontrados.");
         return;
@@ -119,13 +141,14 @@ function btnDesencriptar(){
     msj.value = textoDesencriptado;
     inputTexto.value="";
 
-    if(textoDesencriptado.length != 0){
+    if(textoDesencriptado.length > 0){
 
         msj.style.backgroundImage = "none";
         //Título de mensaje de encriptado
         titulo.textContent = "Texto desencriptado con éxito";
         //Parrafo de mensaje encriptado
         reseña.textContent = " ";
+        mostrarBotonCopiar();
 
         // Asegurarse de que solo se registre un evento de clic
         botonCopiar.removeEventListener("click", handleCopyClick); // Eliminar el evento anterior si existe
@@ -133,6 +156,7 @@ function btnDesencriptar(){
 
     }else{
 
+        //Aparece la imagen
         msj.style.backgroundImage = "";
         //Título de mensaje 
         titulo.textContent = "Ningún mensaje fue encontrado";
@@ -140,6 +164,7 @@ function btnDesencriptar(){
         reseña.textContent = "Ingrese texto que desee encriptar o desencriptar";
         //alerta
         alert("Debes ingresar algún texto para desencriptar");
+        ocultarBotonCopiar();
 
     }
 }
@@ -151,11 +176,14 @@ function desencriptar(stringDesencript){
     let matriz = [["e" , "enter"],["i", "imes"],["a", "ai"],["o", "ober"],["u", "ufat"]];
 
     if (/[A-Z]/.test(stringDesencript) && /[^a-zA-Z0-9\s]/.test(stringDesencript)) {
-        alert("Has ingresado letras mayúsculas y caracteres especiales, por favor ingresa nuevamente.");
+        alert("Has ingresado letra/s mayúscula/s y caracteres especiales, por favor ingresa nuevamente.");
+        return null; // Retornar null si el texto no cumple con las condiciones
     } else if (/[A-Z]/.test(stringDesencript)) {
-        alert("Has ingresado letras mayúsculas, por favor ingresa nuevamente.");
+        alert("Has ingresado letra/s mayúscula/s, por favor ingresa nuevamente.");
+        return null; // Retornar null el texto no cumple con las condiciones
     } else if (/[^a-zA-Z0-9\s]/.test(stringDesencript)) {
         alert("Has ingresado caracteres especiales, por favor ingresa nuevamente.");
+        return null; // Retornar null si el texto no cumple con las condiciones
     } else {
 
         for(let i = 0; i< matriz.length; i++){
@@ -169,7 +197,7 @@ function desencriptar(stringDesencript){
     
         }
     
-        return stringDesencript;
+        return stringDesencript;//Retorna el texto desencriptado
     }
 
     //CODIFICACIÓN EXTRA! :) 
