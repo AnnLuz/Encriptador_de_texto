@@ -202,7 +202,7 @@ h2{
     margin: 3px;
 }
 .mensaje{
-    background-image: url(/assets/img/imagen_desktop.jpg);
+    background-image: url(/assets/img/imagen_desktop.png);
     background-repeat: no-repeat;
     border: none;
     border-radius: 10px;
@@ -387,7 +387,7 @@ h2{
         justify-content: center;
     }
     .mensaje{
-        background-image: url(/assets/img/imagen_tablet.jpg);
+        background-image: url(/assets/img/imagen_tablet.png);
         background-repeat: no-repeat;
         border: none;
         border-radius: 24px;
@@ -481,7 +481,7 @@ h2{
 @media(max-width: 375px){
 
     .mensaje{
-        background-image: url(/assets/img/imagen_celular.jpg);
+        background-image: url(/assets/img/imagen_celular.png);
         background-repeat: no-repeat;
         border: none;
         border-radius: 24px;
